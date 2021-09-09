@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assembly Backend</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        background-color: lightgray;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      input {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+      #response {
+        border: solid blue;
+      }
+      table {
+        display: flex;
+        flex-direction: column;
+      }
+      table,
+      td {
+        border: 1px solid #333;
+      }
+
+      thead,
+      tfoot {
+        background-color: #333;
+        color: #fff;
+      }
+      #submit {
+        background-color: greenyellow;
+      }
+      #helper {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Vishnu Tej</h2>
+    <h1>Simple HTTP server</h1>
+    <p>
+      Note: I have stored the csv in the .data/museum/data.csv. LA City keeps
+      visitors data. The data can be accessed in a number of ways, is up to you
+      to define the approach
+    </p>
+
+    <table style="padding: 20px" style="display: flex; flex-direction: column">
+      <tr>
+        <td>
+          <h2>Please use this to test the api</h2>
+          <form action="/api/visitors?" method="get" id="form">
+            <label>date</label
+            ><input type="text" name="date" id="date" required="" /><br />
+            <label>ignore(optional) </label
+            ><input type="text" id="ignore" name="ignore" id="ignore" /><br />
+            <br />
+            <input name="submitted" type="hidden" value="true" /><br />
+            <input type="submit" value="Submit" id="submit" />
+          </form>
+          <pre id="response">Response</pre>
+        </td>
+      </tr>
+    </table>
+
+    <table id="helper">
+      <thead>
+        <tr>
+          <th colspan="2">Helper table for test cases</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><i>date</i></td>
+          <td><i>ignore</i></td>
+        </tr>
+        <tr>
+          <td>1404198000000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>1404198000000</td>
+          <td>Avila Adobe</td>
+        </tr>
+        <tr>
+          <td>1404198000000</td>
+          <td>Hellman Quon</td>
+        </tr>
+        <tr>
+          <td>234243234234</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      const form = document.getElementById("form");
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+        let date = document.getElementById("date");
+        let ignore = document.getElementById("ignore");
+        fetch(`/api/visitors?date=${date.value}&ignore=${ignore.value}`)
+          .then((data) => {
+            if (data.status !== 200) {
+              return { status: data.status };
+            }
+            return data.json();
+          })
+          .then((response) => {
+            console.log(response);
+            document.getElementById("response").innerText = JSON.stringify(
+              response,
+              null,
+              4
+            );
+          });
+      };
+    </script>
+  </body>
+</html>
