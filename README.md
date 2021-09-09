@@ -10,3 +10,14 @@ do ```node server.js``` to run the server
 the api endpoint matches that in the documentation
 
 /api/visitors?date=YOUR-DATE-IN-MILLIS&ignore=THE-MUSEUM-TO-BE-IGNORED
+
+I have hosted the server on heroku:
+https://assembly-simple-node-server.herokuapp.com/
+
+these are the endpoints
+1. /api/visitors
+2. /museum
+3. /ping
+4. / => the default page to use the ui
+
+I have stored the data to be fetched in .data/museum/data.csv instead of making the calls directly to the website https://data.lacity.org/Arts-Culture/Museum-Visitors/trxm-jn3c

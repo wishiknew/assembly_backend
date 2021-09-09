@@ -1,2 +1,4 @@
 node_modules
 responses
+https/cert.pem
+https/key.pem
