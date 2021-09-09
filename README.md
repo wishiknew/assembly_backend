@@ -1,7 +1,7 @@
 I am writing the solution in just node. That is right. With no frameworks like express. Becuase for this project that might not be necessary.
 
 
-A simple test ui is laid out in the home page.
+A simple test ui is laid out in the home page. You will see a form where you can make requests directly.
 
 this will make requests to the api.
 
