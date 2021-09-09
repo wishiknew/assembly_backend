@@ -5,7 +5,15 @@ A simple test ui is laid out in the home page. You will see a form where you can
 
 this will make requests to the api.
 
+install all the dependencies with ```npm i```
+
 do ```node server.js``` to run the server
+
+the go to localhost:3000 for the http server
+
+if you want to serve the https server go to localhost:3001
+But before that got to the https folder and do ```./keyGeneration.sh``` using the git-bash shell
+and uncomment the lines for the https server(lines 26-38 in server.js)
 
 the api endpoint matches that in the documentation
 
