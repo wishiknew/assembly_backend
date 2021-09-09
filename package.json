@@ -1,0 +1,13 @@
+{
+  "name": "assembly_backend",
+  "version": "1.0.0",
+  "description": "I am writing the solution in just node. That is right. With no frameworks like express. Becuase for this project that might not be necessary.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
